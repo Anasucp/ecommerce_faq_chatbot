@@ -13,9 +13,7 @@ An AI-powered chatbot built using Flask and Machine Learning that answers freque
 6. [Directory Structure](#directory-structure)
 7. [How to Run Locally](#how-to-run-locally)
 8. [Deployment on Railway](#deployment-on-railway)
-9. [Screenshots](#screenshots)
-10. [Challenges and Limitations](#challenges-and-limitations)
-11. [Future Considerations](#future-considerations)
+9. [Challenges and Limitations](#challenges-and-limitations)
 
 ---
 
