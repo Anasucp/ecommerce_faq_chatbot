@@ -28,4 +28,7 @@ def chat():
 
 # Ensure the Flask app runs on the correct host and port for deployment
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)  # Change the host and port for deployment
+    # Use the environment variable PORT provided by Railway (default to 5000 if not set)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)  # Disable debug mode for production
+
