@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import joblib
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -13,15 +14,18 @@ def index():
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    # Get the user's question
+    # Get the user's question from the POST request body
     user_input = request.json.get("question")
-
-    # Predict the intent ID
+    
+    # Predict the intent ID using the trained model
     intent_id = model.predict([user_input])[0]
 
-    # Retrieve the response based on the predicted intent ID
+    # Retrieve the corresponding response from the questions data
     response = questions_data[int(intent_id)]['answer']
+    
+    # Return the response in JSON format
     return jsonify({"response": response})
 
+# Ensure the Flask app runs on the correct host and port for deployment
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)  # Change the host and port for deployment
